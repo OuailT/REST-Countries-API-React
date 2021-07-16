@@ -1,0 +1,63 @@
+.banner {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    padding-top: 9rem ;
+}
+
+.grid-container {
+    position: relative;
+    width: 95vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: auto;
+    
+}
+
+.country-card {
+    max-width: 300px;
+    margin: 2rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.country-img {
+    position: relative;
+}
+
+.country-img img {
+    max-width: 100%;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.country-info {
+    position: relative;
+    padding: 2rem 2rem;
+}
+
+
+.country-info h2 {
+    padding-bottom: 1.5rem;
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: 1.10rem;
+}
+
+.country-details {
+    letter-spacing: 0.5px;
+}
+
+.country-details h3 {
+    font-size: 0.80rem;
+    font-weight: 600;
+    margin-bottom: 0.50rem;
+    
+}
+
+.country-details h3 span {
+    font-weight: 500;
+}
+
+

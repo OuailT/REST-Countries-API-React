@@ -1,4 +1,4 @@
-.banner {
+.countryContainer {
     position: relative;
     min-height: 100vh;
     width: 100%;
@@ -17,15 +17,12 @@
 .country-card {
     max-width: 300px;
     margin: 2rem;
-    background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     cursor: pointer;
 }
 
-.country-img {
-    position: relative;
-}
+
 
 .country-img img {
     max-width: 100%;
@@ -59,5 +56,46 @@
 .country-details h3 span {
     font-weight: 500;
 }
+
+
+nav.country-nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 55px;
+}
+
+.searchBar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 56px;
+    max-width: 420px;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 2px 9px rgb(0 0 0 / 5%);
+}
+
+
+.searchBar svg {
+    margin: 0px 24px 0 32px;
+    height: 15px;
+    width: 15px;
+}
+
+
+.searchBar input {
+    background: transparent;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    outline: none;
+    border: none;
+    font-family: "Nunito", sans-serif;
+    font-size: 1rem;
+    font-size: 14px;
+}
+
+
+
 
 

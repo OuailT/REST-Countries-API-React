@@ -44,6 +44,10 @@ header .mode h3 {
     transition: 0.5s;
 }
 
+.modeBtn.Sun {
+    color: blue;
+}
+
 
 
 

@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const CountryCard = ({countries}) => {
+const CountryCard = ({countries, colorSet, bgColorSet}) => {
     return (
         <>
         {countries.map((country)=> {

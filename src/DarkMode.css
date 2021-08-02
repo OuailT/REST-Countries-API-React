@@ -1,0 +1,35 @@
+.DarkMode {
+    background-color: #202c36;
+    min-height: 100vh;
+}
+
+.DarkMode .grid-container {
+    color: #fff;
+}
+
+.DarkMode .searchBar {
+    background: #2b3844;
+    box-shadow: 0 2px 9px rgb(0 0 0 / 5%);
+}
+
+
+.DarkMode .searchBar input {
+    color: #fff;
+}
+
+.DarkMode .searchBar svg path {
+    fill:#fff;
+}
+
+.DarkMode input::-webkit-input-placeholder {
+    color: #fff;
+}
+
+.DarkMode header {
+    background-color: #202c36;
+    color: #fff
+}
+
+.DarkMode .modeBtn {
+    color: #fff;
+}

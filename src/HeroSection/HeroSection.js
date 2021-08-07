@@ -26,23 +26,70 @@ const HeroSection = ({bgColorSet, colorSet}) => {
     const [searchTerm, setSearchTerm] = useState("") // to get the value from the country.name
     const [searchResultCountry, setSearchResultCountry] = useState([]) // to update the data countries
 
-    //To get the region
-    const regionHandler = async (valueSelected) => {
-        //To store the value selected
-        setValueSelected(valueSelected);
-        const sendRequest = await axios.get(`https://restcountries.eu/rest/v2/region/${valueSelected.value}`);
-        const searchResults = await sendRequest.data;
-        getCountries(searchResults)
+    //To get the region Using Async await
+    // const regionHandler = async (valueSelected) => {
+    //     //To store the value selected
+    //     setValueSelected(valueSelected);
+    //     try {
+    //         if(valueSelected.value) {
+    //         const sendRequest = await axios.get(`https://restcountries.eu/rest/v2/region/${valueSelected.value}`);
+    //         const searchResults = await sendRequest.data;
+    //         getCountries(searchResults)
+
+    //         } 
+    //         else {
+    //             const sendIt = await axios.get(`${URL}`)
+    //             const searchResult = await sendIt.data;
+    //             getCountries(searchResult);
+    //         }
+
+    //     } catch(error) {
+    //         console.error(`Error : ${error}`)
+    //     }
+    // }
+
+    // Region Handler using promises
+    const RegionSelect = async (valueSelected) => {
+        setValueSelected(valueSelected)
+        if(valueSelected.value) {
+            await axios.get(`https://restcountries.eu/rest/v2/region/${valueSelected.value}`)
+            .then((response)=> {
+                const searchResult = response.data;
+                getCountries(searchResult);
+            }).catch((error)=> console.error(`Error : ${error}`));
+        } else {
+            await axios.get(`${URL}`)
+            .then((response)=> {
+                const searchResult = response.data;
+                getCountries(searchResult)
+            }).catch((error)=> console.error(`Error : ${error}`));
+        }
     }
 
-    //To Get the countries
+    //To Get the countries using async await
+    // useEffect(()=> {
+    //     try {
+    //         const GetData = async () => {
+    //             const response = await axios.get(`${URL}`);
+    //             const result = await response.data;
+    //             getCountries(result);
+    //         }
+    //         GetData();
+
+    //     } catch(error) {
+    //         console.error(`Error : ${error}`)
+    //     }
+    // }, [])
+
+
+
+   //Getting the countries using Promises
     useEffect(()=> {
-        const GetData = async () => {
-            const response = await axios.get(`${URL}`);
-            const result = await response.data;
-            getCountries(result);
-        }
-        GetData();
+        axios.get(`${URL}`)
+        .then((response)=> {
+            const result = response.data;
+            getCountries(result)
+        }).catch((error)=> console.error(`Error : ${error}`))
     }, [])
 
 
@@ -103,7 +150,7 @@ const HeroSection = ({bgColorSet, colorSet}) => {
             </div>
             <Select  options={options} value={valueSelected} 
                         defaultValue={{value : "", label : "Filter by Region"}}
-                        onChange={regionHandler} styles={customStyles}/>
+                        onChange={RegionSelect} styles={customStyles}/>
             </nav>
           
             <div className="grid-container">

@@ -48,6 +48,17 @@ header .mode h3 {
     color: blue;
 }
 
+@media (max-width: 480px) {
+    header {
+        padding: 1rem 1.50rem;
+    }
+
+    header h2 {
+        font-size: 1.10rem;
+    }
+}
+
+
 
 
 

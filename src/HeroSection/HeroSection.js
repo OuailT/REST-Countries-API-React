@@ -7,7 +7,6 @@ import './HeroSection.css'
 
 const URL = "https://restcountries.eu/rest/v2?fields=alpha3Code;name;population;region;capital;flag";
 
-
 const options = [
     {value : "", label : "Filter by Region"},
     {value : "Africa", label : "Africa"},
@@ -18,14 +17,13 @@ const options = [
 ]
 
 
-
-
 const HeroSection = ({bgColorSet, colorSet}) => {
     const [countries, getCountries] = useState([])
     const [valueSelected, setValueSelected] = useState(null)
     const [searchTerm, setSearchTerm] = useState("") // to get the value from the country.name
     const [searchResultCountry, setSearchResultCountry] = useState([]) // to update the data countries
 
+    console.log(countries);
     //To get the region Using Async await
     const regionHandler = async (valueSelected) => {
         //To store the value selected

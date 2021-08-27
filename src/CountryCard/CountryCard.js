@@ -1,28 +1,30 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 const CountryCard = ({countries, colorSet, bgColorSet}) => {
     return (
         <>
         {countries.map((country)=> {
-            // {alpha3Code, flag, population, region, capital, name } = country
+         const {alpha3Code, flag, population, region, capital, name } = country ;
             return (
-
-                <div className="country-card" key={country.alpha3Code}>
-                <div className="country-img">
-                    <img src={country.flag} alt={country.name}/>
-                </div>
-
-                <div className="country-info">
-                    <h2>{country.name}</h2>
-                    <div className="country-details">
-                        <h3>Population : <span>{country.population}</span> </h3>
-                        <h3>Region : <span>{country.region}</span></h3>
-                        <h3>Capital : <span>{country.capital}</span></h3>
+            <div className="country-card" key={alpha3Code}>
+                <Link to={`/country/${alpha3Code}`}>
+                    <div className="country-img">
+                        <img src={flag} alt={name}/>
                     </div>
-                </div>
-         </div>
 
+                    <div className="country-info">
+                        <h2>{name}</h2>
+                        <div className="country-details">
+                            <h3>Population : <span>{population}</span> </h3>
+                            <h3>Region : <span>{region}</span></h3>
+                            <h3>Capital : <span>{capital}</span></h3>
+                        </div>
+                    </div>
+                 </Link>
+            </div>
+            
             )
 
         })}

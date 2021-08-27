@@ -4,6 +4,8 @@ import Navbar from './Navbar/Navbar';
 import React,{useState} from "react";
 import './DarkMode.css'
 import './LightMode.css'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import CountryDetails from './CountryDetails/CountryDetails';
 
 function App() {
   //create a state to toggle the classes
@@ -20,10 +22,18 @@ function App() {
   const toggleTrueFalse = () => setIsToggled(!isToggled);
 
   return (
-    <div className={`App ${toggleModeClass}`} >
-    <Navbar toggleAction={toggleTrueFalse} toggleName={toggleName}/>
-    <HeroSection bgColorSet={bgColorSet} colorSet={colorSet} />
-    </div>
+      <div className={`App ${toggleModeClass}`} >
+      <Router>
+        <Navbar toggleAction={toggleTrueFalse} toggleName={toggleName}/>
+          <Switch>
+            <Route path="/" exact>
+              <HeroSection bgColorSet={bgColorSet} colorSet={colorSet} />
+            </Route>
+            <Route path="/country/:countryId" component={CountryDetails}/>
+            <Route>404 Page not found</Route>
+          </Switch>
+      </Router>
+      </div>
   );
 }
 
